@@ -4,9 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Beoordeling_Login {
 
-	
-	public static boolean returnvalue;
-	
+		
 	public static boolean correctinloggen(String Omgeving, String Rol, String Browser) { 
 	LoginPortal PortalInloggen = new LoginPortal();
 	WebDriver driver = PortalInloggen.inloggen(Omgeving,Rol,Browser);
