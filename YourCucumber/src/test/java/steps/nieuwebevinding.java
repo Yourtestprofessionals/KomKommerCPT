@@ -36,7 +36,7 @@ public class nieuwebevinding {
         // it had to be done.       	
     	
     	assertTrue (mantisops_db.ReportIssue(arg1, arg2, arg3, arg4));
-    	throw new PendingException();
+    	
     }
 
     @Then("^i have succesfully created the testcase$")
