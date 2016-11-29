@@ -12,7 +12,7 @@ public class Beoordeling_Login {
 	String a = driver.findElement(By.linkText("Log out")).getText();
 	String b = "Log out";
 	boolean returnvalue = false;
-				
+	
 	driver.quit();
 		if ((a).equals(b)) {
 		returnvalue = true;
