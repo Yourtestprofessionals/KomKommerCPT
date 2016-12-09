@@ -15,19 +15,19 @@ import pageObjects.navigeren;
 
 public class mantisops_db {
 
-	public boolean ReportIssue(String Omgeving, String Rol, String Browser, String BevId) throws InterruptedException 
+	public static boolean ReportIssue(String Omgeving, String Rol, String Browser, String BevId) throws InterruptedException 
 	{
 		LoginPortal PortalInloggen = new LoginPortal();
 		WebDriver driver = PortalInloggen.inloggen(Omgeving,Rol,Browser);
 		driver.manage().window().maximize(); 
 		
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		navigeren.PijlRechts(driver).click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		navigeren.NavigeerMantis(driver).click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		navigeren.MaakBevinding(driver).click();
 				
 		// verbinding met MySql database en specificatie
@@ -71,18 +71,21 @@ public class mantisops_db {
 		
 		// Issue submit
 		Mantisobjecten.submit_button(driver).click();	 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		
 		String pageSource = driver.getPageSource();
 		String expectedContent = "View Submitted Issue";
 		String Error = "APPLICATION ERROR #11";
 		boolean returnvalue = false;		
-
+		
+		Thread.sleep(1000);
+		
 		if ((pageSource).contains(expectedContent))
 		{ 
 			System.out.println("TC GESLAAGD | Bevinding aangemaakt" );
 			returnvalue = true;
+			Thread.sleep(500);
 		}
 		
 		else if ((pageSource).contains(Error))
@@ -96,7 +99,7 @@ public class mantisops_db {
 			System.out.println("TC MISLUKT | Paginabron (bekijk nader):" + " " + pageSource );
 		
 		}
-		
+		Thread.sleep(1000);
 		driver.close();
 		driver.quit();
 		
