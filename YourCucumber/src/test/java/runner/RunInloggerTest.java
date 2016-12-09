@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         format = { "pretty", "html:target/html/" },
         glue = "steps",
+
         features = "classpath:featurefiles/"
 )
 public class RunInloggerTest {
