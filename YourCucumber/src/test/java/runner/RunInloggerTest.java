@@ -6,9 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        format = { "pretty", "html:target/cucumber" },
+        format = { "pretty", "html:target/html/" },
         glue = "steps",
-        features = "classpath:featurefiles/inloggen.feature"
+        features = "classpath:featurefiles/"
 )
 public class RunInloggerTest {
 }
